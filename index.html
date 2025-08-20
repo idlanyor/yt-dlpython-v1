@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Downloader API - Modern & Fast</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-indigo-500 to-purple-600 text-gray-800 overflow-x-hidden" style="font-family: 'Quicksand', sans-serif;">
+    <header class="sticky top-0 z-50 py-4 bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 backdrop-blur-md shadow-lg border-b border-white/20">
+        <nav class="container mx-auto px-6 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-white no-underline hover:scale-105 transition-transform duration-300 flex items-center space-x-2">
+                <span class="text-3xl animate-pulse">🎵</span>
+                <span class="bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">YT-DLP API</span>
+            </a>
+            
+            <!-- Desktop Menu -->
+            <ul class="hidden md:flex space-x-8">
+                <li><a href="#features" class="text-white hover:text-yellow-300 transition-all duration-300 hover:scale-110 px-3 py-2 rounded-lg hover:bg-white/10">Features</a></li>
+                <li><a href="#demo" class="text-white hover:text-yellow-300 transition-all duration-300 hover:scale-110 px-3 py-2 rounded-lg hover:bg-white/10">Demo</a></li>
+                <li><a href="#endpoints" class="text-white hover:text-yellow-300 transition-all duration-300 hover:scale-110 px-3 py-2 rounded-lg hover:bg-white/10">API Docs</a></li>
+                <li><a href="/docs" target="_blank" class="bg-gradient-to-r from-yellow-400 to-orange-400 text-gray-900 font-semibold px-4 py-2 rounded-full hover:from-yellow-300 hover:to-orange-300 transition-all duration-300 hover:scale-105 shadow-lg">Swagger</a></li>
+            </ul>
+            
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-white hover:text-yellow-300 transition-colors" onclick="toggleMobileMenu()">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </nav>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-black/20 backdrop-blur-sm border-t border-white/20">
+            <ul class="container mx-auto px-6 py-4 space-y-3">
+                <li><a href="#features" class="block text-white hover:text-yellow-300 transition-colors py-2 px-3 rounded-lg hover:bg-white/10">Features</a></li>
+                <li><a href="#demo" class="block text-white hover:text-yellow-300 transition-colors py-2 px-3 rounded-lg hover:bg-white/10">Demo</a></li>
+                <li><a href="#endpoints" class="block text-white hover:text-yellow-300 transition-colors py-2 px-3 rounded-lg hover:bg-white/10">API Docs</a></li>
+                <li><a href="/docs" target="_blank" class="block bg-gradient-to-r from-yellow-400 to-orange-400 text-gray-900 font-semibold py-2 px-4 rounded-lg hover:from-yellow-300 hover:to-orange-300 transition-all duration-300 text-center">Swagger</a></li>
+            </ul>
+        </div>
+    </header>
+    
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+        
+        // Close mobile menu when clicking on links
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobileMenu').classList.add('hidden');
+            });
+        });
+    </script>
+
+    <section class="h-screen flex items-center justify-center text-center perspective-1000">
+        <div class="container mx-auto px-4 transform-style-3d rotate-x-12 rotate-y-6">
+            <div class="relative">
+                <div class="absolute inset-0 bg-gradient-to-r from-indigo-500/20 to-purple-600/20 blur-xl transform -skew-y-6"></div>
+                <h1 class="relative text-5xl md:text-6xl font-bold mb-6 animate-float bg-gradient-to-r from-white via-yellow-300 to-white bg-clip-text text-transparent bg-[length:200%] animate-gradient transform hover:scale-105 transition-transform">YouTube Downloader API</h1>
+            </div>
+            <p class="text-lg text-white/90 mb-10 max-w-2xl mx-auto transform translate-z-8 hover:translate-z-12 transition-transform">Download YouTube videos, audio, and shorts with our powerful and fast API. Built with modern technology for developers who need reliable media downloading.</p>
+            <a href="#demo" class="inline-block px-8 py-4 bg-gradient-to-r from-red-400 via-yellow-400 to-red-600 bg-[length:200%] animate-gradient text-white rounded-full font-bold shadow-lg hover:-translate-y-1 hover:translate-z-4 hover:shadow-xl transition-all transform">Try It Now</a>
+        </div>
+    </section>
+
+    <style>
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+        .animate-gradient {
+            animation: gradient 3s linear infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateZ(0); }
+            50% { transform: translateY(-10px) translateZ(20px); }
+        }
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+        .perspective-1000 {
+            perspective: 1000px;
+        }
+        .transform-style-3d {
+            transform-style: preserve-3d;
+        }
+        .rotate-x-12 {
+            transform: rotateX(12deg);
+        }
+        .rotate-y-6 {
+            transform: rotateY(6deg);
+        }
+        .translate-z-8 {
+            transform: translateZ(8px);
+        }
+        .translate-z-12 {
+            transform: translateZ(12px);
+        }
+        .translate-z-4 {
+            transform: translateZ(4px);
+        }
+    </style>
+
+    <section id="features" class="bg-white py-24">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16">Powerful <span class="bg-gradient-to-r from-indigo-500 to-purple-600 bg-clip-text text-transparent">Features</span></h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl p-8 text-center transform hover:scale-105 transition-transform shadow-lg hover:shadow-xl">
+                    <div class="w-20 h-20 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full flex items-center justify-center text-3xl text-white mx-auto mb-6">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Audio Download</h3>
+                    <p class="text-gray-600">Extract high-quality audio from YouTube videos in MP3 format with 192kbps quality. Perfect for music lovers and podcast enthusiasts.</p>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-8 text-center transform hover:scale-105 transition-transform shadow-lg hover:shadow-xl">
+                    <div class="w-20 h-20 bg-gradient-to-r from-blue-500 to-cyan-600 rounded-full flex items-center justify-center text-3xl text-white mx-auto mb-6">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Video Download</h3>
+                    <p class="text-gray-600">Download full YouTube videos in the best available quality. Supports MP4 format with automatic audio-video merging.</p>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-8 text-center transform hover:scale-105 transition-transform shadow-lg hover:shadow-xl">
+                    <div class="w-20 h-20 bg-gradient-to-r from-pink-500 to-rose-600 rounded-full flex items-center justify-center text-3xl text-white mx-auto mb-6">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">YouTube Shorts</h3>
+                    <p class="text-gray-600">Specialized endpoint for downloading YouTube Shorts. Optimized for vertical video format and mobile-first content.</p>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-8 text-center transform hover:scale-105 transition-transform shadow-lg hover:shadow-xl">
+                    <div class="w-20 h-20 bg-gradient-to-r from-green-500 to-emerald-600 rounded-full flex items-center justify-center text-3xl text-white mx-auto mb-6">
+                        <i class="fas fa-cloud-download-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Public URLs</h3>
+                    <p class="text-gray-600">Get direct download links for all processed files. No need to handle file storage - we provide ready-to-use URLs.</p>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-8 text-center transform hover:scale-105 transition-transform shadow-lg hover:shadow-xl">
+                    <div class="w-20 h-20 bg-gradient-to-r from-yellow-500 to-orange-600 rounded-full flex items-center justify-center text-3xl text-white mx-auto mb-6">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Safe & Secure</h3>
+                    <p class="text-gray-600">Built-in file size limits (500MB max), error handling, and security measures to prevent abuse and ensure reliable service.</p>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-8 text-center transform hover:scale-105 transition-transform shadow-lg hover:shadow-xl">
+                    <div class="w-20 h-20 bg-gradient-to-r from-purple-500 to-violet-600 rounded-full flex items-center justify-center text-3xl text-white mx-auto mb-6">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Fast Processing</h3>
+                    <p class="text-gray-600">Powered by yt-dlp for maximum speed and compatibility. Background processing ensures quick response times.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="demo" class="bg-gradient-to-r from-pink-400 to-red-400 py-24">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-white text-center mb-16">Try the API</h2>
+            <div class="bg-white rounded-2xl p-8 shadow-2xl transform perspective-1000 rotate-x-2">
+                <div class="mb-6">
+                    <input type="url" id="urlInput" placeholder="Enter YouTube URL (e.g., https://www.youtube.com/watch?v=...)" 
+                           class="w-full p-4 border-2 border-gray-200 rounded-lg focus:border-indigo-500 focus:outline-none">
+                </div>
+                <div class="flex flex-wrap gap-4">
+                    <button onclick="downloadContent('audio')" 
+                            class="px-6 py-3 bg-gradient-to-r from-pink-300 to-pink-200 text-gray-700 rounded-lg font-bold hover:-translate-y-1 hover:shadow-lg transition-all">
+                        📱 Download Audio
+                    </button>
+                    <button onclick="downloadContent('video')"
+                            class="px-6 py-3 bg-gradient-to-r from-cyan-300 to-blue-200 text-gray-700 rounded-lg font-bold hover:-translate-y-1 hover:shadow-lg transition-all">
+                        🎬 Download Video
+                    </button>
+                    <button onclick="downloadContent('shorts')"
+                            class="px-6 py-3 bg-gradient-to-r from-yellow-200 to-orange-200 text-gray-700 rounded-lg font-bold hover:-translate-y-1 hover:shadow-lg transition-all">
+                        📱 Download Shorts
+                    </button>
+                </div>
+                <div id="demoResult" class="hidden mt-6 p-4 bg-gray-50 rounded-lg border-l-4 border-indigo-500"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="endpoints" class="bg-white py-24">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16">API <span class="bg-gradient-to-r from-indigo-500 to-purple-600 bg-clip-text text-transparent">Endpoints</span></h2>
+            
+            <div class="space-y-6">
+                <div class="bg-gray-50 rounded-xl p-6 border-l-4 border-indigo-500 transform hover:scale-[1.02] transition-transform">
+                    <span class="inline-block px-4 py-1 bg-green-500 text-white rounded-full text-sm font-bold mb-4">POST</span>
+                    <div class="font-mono text-lg font-bold text-gray-800 mb-4">/download/audio</div>
+                    <div class="text-gray-600">
+                        Downloads the best quality audio from a YouTube URL and returns a public download link. 
+                        Converts to MP3 format with 192kbps quality.
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 rounded-xl p-6 border-l-4 border-blue-500 transform hover:scale-[1.02] transition-transform">
+                    <span class="inline-block px-4 py-1 bg-green-500 text-white rounded-full text-sm font-bold mb-4">POST</span>
+                    <div class="font-mono text-lg font-bold text-gray-800 mb-4">/download/video</div>
+                    <div class="text-gray-600">
+                        Downloads the best quality video from a YouTube URL in MP4 format. 
+                        Automatically merges video and audio streams for optimal quality.
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 rounded-xl p-6 border-l-4 border-pink-500 transform hover:scale-[1.02] transition-transform">
+                    <span class="inline-block px-4 py-1 bg-green-500 text-white rounded-full text-sm font-bold mb-4">POST</span>
+                    <div class="font-mono text-lg font-bold text-gray-800 mb-4">/download/shorts</div>
+                    <div class="text-gray-600">
+                        Specialized endpoint for downloading YouTube Shorts videos. 
+                        Optimized for vertical video format and mobile content.
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 rounded-xl p-6 border-l-4 border-green-500 transform hover:scale-[1.02] transition-transform">
+                    <span class="inline-block px-4 py-1 bg-blue-500 text-white rounded-full text-sm font-bold mb-4">GET</span>
+                    <div class="font-mono text-lg font-bold text-gray-800 mb-4">/files/{filename}</div>
+                    <div class="text-gray-600">
+                        Serves downloaded files directly. Use the filename from the download response 
+                        to access your processed media files.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-white text-center py-10">
+        <div class="container mx-auto px-4">
+            <p class="mb-2">&copy; 2024 YouTube Downloader API. Built with FastAPI and yt-dlp. Made with ❤️ for developers.</p>
+            <p>Base URL: <strong>https://ytdlp.antidonasi.web.id</strong></p>
+        </div>
+    </footer>
+
+    <script>
+        async function downloadContent(type) {
+            const urlInput = document.getElementById('urlInput');
+            const resultDiv = document.getElementById('demoResult');
+            const url = urlInput.value.trim();
+            
+            if (!url) {
+                showResult('error', 'Please enter a YouTube URL');
+                return;
+            }
+            
+            // Show loading state
+            showLoading(type);
+            
+            try {
+                const response = await fetch(`/download/${type}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ url: url })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    showResult('success', `✅ ${data.message}`, data.title, data.url, data.thumbnail);
+                } else {
+                    showResult('error', `❌ Error: ${data.detail || 'Unknown error'}`);
+                }
+            } catch (error) {
+                showResult('error', `❌ Network error: ${error.message}`);
+            }
+        }
+        
+        function showLoading(type) {
+            const resultDiv = document.getElementById('demoResult');
+            const typeNames = {
+                'audio': '🎵 Audio',
+                'video': '🎬 Video', 
+                'shorts': '📱 Shorts'
+            };
+            
+            resultDiv.className = 'mt-6 p-4 bg-blue-50 rounded-lg border-l-4 border-blue-500';
+            resultDiv.innerHTML = `
+                <div class="flex items-center space-x-3">
+                    <div class="animate-spin rounded-full h-6 w-6 border-b-2 border-blue-500"></div>
+                    <div class="text-blue-700 font-medium">Downloading ${typeNames[type]}...</div>
+                </div>
+                <div class="mt-2 text-sm text-blue-600">This may take a few moments depending on the file size.</div>
+            `;
+            resultDiv.classList.remove('hidden');
+        }
+        
+        function showResult(status, message, title = null, downloadUrl = null, thumbnail = null) {
+            const resultDiv = document.getElementById('demoResult');
+            
+            if (status === 'success') {
+                resultDiv.className = 'mt-6 p-4 bg-green-50 rounded-lg border-l-4 border-green-500';
+                resultDiv.innerHTML = `
+                    <div class="text-green-700 font-medium">${message}</div>
+                    ${title ? `<div class="mt-2 text-sm text-green-600"><strong>Title:</strong> ${title}</div>` : ''}
+                    ${thumbnail ? `
+                        <div class="mt-3">
+                            <img src="${thumbnail}" alt="Thumbnail" class="w-32 h-24 object-cover rounded-lg shadow-md">
+                        </div>
+                    ` : ''}
+                    ${downloadUrl ? `
+                        <div class="mt-3">
+                            <a href="${downloadUrl}" target="_blank" 
+                               class="inline-flex items-center px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors">
+                                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                </svg>
+                                Download File
+                            </a>
+                        </div>
+                    ` : ''}
+                `;
+            } else {
+                resultDiv.className = 'mt-6 p-4 bg-red-50 rounded-lg border-l-4 border-red-500';
+                resultDiv.innerHTML = `<div class="text-red-700 font-medium">${message}</div>`;
+            }
+            
+            resultDiv.classList.remove('hidden');
+        }
+        
+        // Add enter key support for URL input
+        document.getElementById('urlInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                // Default to audio download on enter
+                downloadContent('audio');
+            }
+        });
+    </script>
+</body>
+</html>

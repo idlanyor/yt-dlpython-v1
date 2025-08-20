@@ -1,3 +1,8 @@
 fastapi
 uvicorn[standard]
 yt-dlp
+requests
+beautifulsoup4
+lxml
+slowapi
+apscheduler
